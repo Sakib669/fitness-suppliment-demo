@@ -2,43 +2,95 @@ import React from "react";
 
 interface RippedEdgeProps {
   position: "top" | "bottom";
-  fillColor?: string;
+  fillColor?: string; // Color of the adjacent section that cuts in (default #FFFFFF)
   className?: string;
   variant?: 1 | 2 | 3;
 }
 
 export const RippedEdge: React.FC<RippedEdgeProps> = ({
   position,
-  fillColor = "#00843D",
+  fillColor = "#FFFFFF",
   className = "",
   variant = 1,
 }) => {
-  // Different organic rip paths for variety
-  const path1 =
-    "M0,35 Q35,8 70,30 T140,15 T210,38 T280,10 T350,32 T420,18 T490,40 T560,12 T630,34 T700,16 T770,36 T840,14 T910,38 T980,18 T1050,35 T1120,12 T1190,32 T1260,15 T1330,36 T1400,20 T1440,28 L1440,50 L0,50 Z";
+  // Realistic organic torn-paper paths across a 1440x36 canvas
+  // When position is "top", the white from above extends down to the torn edge (filling 0,0 to the ragged line).
+  // When position is "bottom", the white from below extends up to the torn edge (filling the ragged line down to 1440,36).
 
-  const path2 =
-    "M0,28 Q45,12 90,36 T180,14 T270,32 T360,8 T450,38 T540,16 T630,30 T720,12 T810,40 T900,18 T990,34 T1080,15 T1170,36 T1260,10 T1350,30 T1440,18 L1440,50 L0,50 Z";
+  const topPaths = [
+    // Variant 1 Top: fills from y=0 down to ragged edge
+    "M0,0 L1440,0 L1440,24 " +
+      "C1410,22 1395,28 1370,25 C1340,22 1320,16 1290,20 C1265,24 1250,18 1220,17 " +
+      "C1190,16 1175,27 1145,24 C1115,21 1095,15 1065,18 C1035,21 1015,28 985,25 " +
+      "C955,22 935,16 905,19 C880,22 860,28 830,26 C800,24 785,17 755,19 " +
+      "C730,21 710,27 680,25 C650,23 635,15 605,18 C580,21 565,27 535,24 " +
+      "C505,21 485,16 455,19 C425,22 410,28 380,25 C350,22 335,15 305,18 " +
+      "C275,21 255,27 225,25 C195,23 180,16 150,18 C125,20 105,26 75,24 " +
+      "C45,22 30,16 0,22 Z",
 
-  const path3 =
-    "M0,32 Q30,16 65,34 T130,10 T195,38 T260,18 T325,32 T390,8 T455,36 T520,14 T585,32 T650,18 T715,40 T780,12 T845,34 T910,16 T975,38 T1040,14 T1105,32 T1170,18 T1235,36 T1300,12 T1365,30 T1440,22 L1440,50 L0,50 Z";
+    // Variant 2 Top
+    "M0,0 L1440,0 L1440,20 " +
+      "C1405,26 1380,17 1350,23 C1320,29 1290,19 1260,22 C1230,25 1205,16 1175,21 " +
+      "C1145,26 1120,18 1090,24 C1060,30 1035,19 1005,22 C975,25 950,17 920,21 " +
+      "C890,25 865,16 835,22 C805,28 780,18 750,22 C720,26 695,17 665,21 " +
+      "C635,25 610,18 580,22 C550,26 525,17 495,21 C465,25 440,16 410,23 " +
+      "C380,30 355,18 325,21 C295,24 270,16 240,22 C210,28 185,17 155,21 " +
+      "C125,25 100,16 70,22 C40,28 20,18 0,21 Z",
 
-  const selectedPath = variant === 2 ? path2 : variant === 3 ? path3 : path1;
+    // Variant 3 Top
+    "M0,0 L1440,0 L1440,22 " +
+      "C1415,18 1390,26 1365,22 C1335,18 1315,25 1285,21 C1255,17 1235,24 1205,20 " +
+      "C1175,16 1155,25 1125,22 C1095,19 1075,26 1045,21 C1015,16 995,24 965,21 " +
+      "C935,18 915,26 885,22 C855,18 835,25 805,20 C775,15 755,24 725,21 " +
+      "C695,18 675,26 645,22 C615,18 595,25 565,20 C535,15 515,24 485,21 " +
+      "C455,18 435,26 405,22 C375,18 355,25 325,20 C295,15 275,24 245,21 " +
+      "C215,18 195,26 165,22 C135,18 115,25 85,20 C55,15 30,24 0,19 Z",
+  ];
+
+  const bottomPaths = [
+    // Variant 1 Bottom: fills from ragged edge down to y=36
+    "M0,18 C30,14 45,20 75,17 C105,14 125,22 150,19 C180,16 195,24 225,21 " +
+      "C255,18 275,12 305,16 C335,20 350,14 380,17 C410,20 425,13 455,17 " +
+      "C485,21 505,14 535,18 C565,22 580,15 605,18 C635,21 650,13 680,17 " +
+      "C710,21 730,14 755,18 C785,22 800,15 830,17 C860,19 880,12 905,17 " +
+      "C935,22 955,15 985,18 C1015,21 1035,13 1065,17 C1095,21 1115,15 1145,18 " +
+      "C1175,21 1190,14 1220,18 C1250,22 1265,16 1290,19 C1320,22 1340,15 1370,18 " +
+      "C1395,21 1410,14 1440,18 L1440,36 L0,36 Z",
+
+    // Variant 2 Bottom
+    "M0,17 C20,13 40,24 70,18 C100,12 125,21 155,16 C185,11 210,22 240,17 " +
+      "C270,12 295,20 325,16 C355,12 380,24 410,18 C440,12 465,20 495,16 " +
+      "C525,12 550,22 580,17 C610,12 635,20 665,16 C695,12 720,22 750,17 " +
+      "C780,12 805,22 835,17 C865,12 890,20 920,16 C950,12 975,21 1005,17 " +
+      "C1035,13 1060,24 1090,18 C1120,12 1145,21 1175,16 C1205,11 1230,20 1260,17 " +
+      "C1290,14 1320,24 1350,18 C1380,12 1405,22 1440,17 L1440,36 L0,36 Z",
+
+    // Variant 3 Bottom
+    "M0,19 C30,24 55,15 85,20 C115,25 135,17 165,21 C195,25 215,17 245,21 " +
+      "C275,25 295,16 325,20 C355,24 375,17 405,21 C435,25 455,17 485,21 " +
+      "C515,25 535,16 565,20 C595,24 615,17 645,21 C675,25 695,17 725,21 " +
+      "C755,25 775,16 805,20 C835,24 855,17 885,21 C915,25 935,17 965,21 " +
+      "C995,25 1015,17 1045,21 C1075,25 1095,18 1125,21 C1155,24 1175,16 1205,20 " +
+      "C1235,24 1255,17 1285,21 C1315,25 1335,18 1365,22 C1390,26 1415,17 1440,22 L1440,36 L0,36 Z",
+  ];
+
+  const idx = (variant - 1) % 3;
+  const path = position === "top" ? topPaths[idx] : bottomPaths[idx];
 
   return (
     <div
-      className={`w-full overflow-hidden leading-none select-none pointer-events-none ${
-        position === "top" ? "rotate-180 -mb-1" : "-mt-1"
+      className={`w-full overflow-hidden leading-none select-none pointer-events-none relative z-10 ${
+        position === "top" ? "-mb-1" : "-mt-1"
       } ${className}`}
       aria-hidden="true"
     >
       <svg
-        viewBox="0 0 1440 50"
+        viewBox="0 0 1440 36"
         preserveAspectRatio="none"
-        className="w-full h-7 sm:h-9 md:h-12 block"
+        className="w-full h-4 sm:h-6 md:h-8 block"
         style={{ color: fillColor }}
       >
-        <path d={selectedPath} fill="currentColor" />
+        <path d={path} fill="currentColor" />
       </svg>
     </div>
   );

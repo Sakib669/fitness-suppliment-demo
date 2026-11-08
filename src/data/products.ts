@@ -30,7 +30,7 @@ export const PRODUCTS: Product[] = [
     discountPercent: 15,
     rating: 4.9,
     reviewsCount: 142,
-    image: "/images/products/vitamin-complex.png",
+    image: "/images/products/vitamin-complex.svg",
     badge: "Sale",
     description: "Clinically dosed micronutrient formula supporting cellular energy, immune defense, and active muscle recovery for high-output athletes.",
     servingSize: "2 Capsules",
@@ -50,7 +50,7 @@ export const PRODUCTS: Product[] = [
     discountPercent: 17,
     rating: 4.8,
     reviewsCount: 98,
-    image: "/images/products/mass-gainer.png",
+    image: "/images/products/mass-gainer.svg",
     badge: "Best Seller",
     description: "Dense multi-stage carbohydrate and micellar protein system designed to fuel lean hypertrophy without bloating or excessive sugar spikes.",
     servingSize: "150g (3 Scoops)",
@@ -70,7 +70,7 @@ export const PRODUCTS: Product[] = [
     discountPercent: 5,
     rating: 4.9,
     reviewsCount: 215,
-    image: "/images/products/recovery-whey.png",
+    image: "/images/products/recovery-whey.svg",
     badge: "Sale",
     description: "Cold-filtered whey peptide isolate fused with pink Himalayan electrolytes for instantaneous post-training muscular hydration and glycogen replenishment.",
     servingSize: "34g (1 Scoop)",
@@ -90,7 +90,7 @@ export const PRODUCTS: Product[] = [
     discountPercent: 9,
     rating: 5.0,
     reviewsCount: 380,
-    image: "/images/products/isolate-gold.png",
+    image: "/images/products/isolate-gold.svg",
     badge: "New",
     description: "Our flagship micro-filtered cross-flow whey isolate engineered for pure bioavailability, instant mixability, and pristine muscle protein synthesis.",
     servingSize: "32g (1 Scoop)",
@@ -110,7 +110,7 @@ export const PRODUCTS: Product[] = [
     discountPercent: 19,
     rating: 4.9,
     reviewsCount: 412,
-    image: "/images/products/creatine-powder.png",
+    image: "/images/products/creatine-powder.svg",
     badge: "Best Seller",
     description: "Pharmaceutical-grade 200 mesh micronized creatine monohydrate for maximal ATP regeneration, intracellular volumization, and explosive power output.",
     servingSize: "5g (1 Scoop)",
@@ -130,7 +130,7 @@ export const PRODUCTS: Product[] = [
     discountPercent: 16,
     rating: 4.7,
     reviewsCount: 89,
-    image: "/images/products/energy-drink.png",
+    image: "/images/products/energy-drink.svg",
     badge: "New",
     description: "Clean cellular hydration fueled by real coconut water powder, magnesium glycinate, and bio-identical sodium without artificial dyes.",
     servingSize: "8g (1 Scoop)",
@@ -143,12 +143,12 @@ export const PRODUCTS: Product[] = [
 ];
 
 export const CATEGORIES = [
-  { name: "Creatine", count: 12, icon: "creatine", image: "/images/categories/creatine.png" },
-  { name: "Food & drink", count: 18, icon: "drink", image: "/images/categories/food-drink.png" },
-  { name: "Gainer", count: 8, icon: "gainer", image: "/images/categories/gainer.png" },
-  { name: "Nutrition", count: 24, icon: "nutrition", image: "/images/categories/nutrition.png" },
-  { name: "Protein", count: 32, icon: "protein", image: "/images/categories/protein.png" },
-  { name: "Vitamins", count: 15, icon: "vitamins", image: "/images/categories/vitamins.png" },
+  { name: "Creatine", count: 12, icon: "creatine", image: "/images/categories/creatine.svg" },
+  { name: "Food & drink", count: 18, icon: "drink", image: "/images/categories/food-drink.svg" },
+  { name: "Gainer", count: 8, icon: "gainer", image: "/images/categories/gainer.svg" },
+  { name: "Nutrition", count: 24, icon: "nutrition", image: "/images/categories/nutrition.svg" },
+  { name: "Protein", count: 32, icon: "protein", image: "/images/categories/protein.svg" },
+  { name: "Vitamins", count: 15, icon: "vitamins", image: "/images/categories/vitamins.svg" },
 ];
 
 export const SPOTLIGHT_PRODUCT = {
@@ -160,7 +160,7 @@ export const SPOTLIGHT_PRODUCT = {
   discountPercent: 14,
   rating: 4.9,
   reviewsCount: 520,
-  image: "/images/products/spotlight-tub.png",
+  image: "/images/products/spotlight-tub.svg",
   highlights: [
     {
       title: "Whey Protein Concentrate",
