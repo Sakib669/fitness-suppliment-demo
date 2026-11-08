@@ -62,41 +62,41 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <RippedEdge position="top" fillColor="#FFFFFF" />
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-16 md:pt-10 md:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Supplement Presentation with Splash & Navigation Arrows */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 sm:pt-10 sm:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
+          {/* Product Showcase Column */}
           <div className="lg:col-span-6 relative flex items-center justify-center">
             {/* Left arrow */}
             <button
               onClick={handlePrev}
-              className="absolute -left-2 sm:left-0 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-white flex items-center justify-center transition-all duration-200 active:scale-90 border border-white/20 shadow-lg"
+              className="absolute left-1 sm:left-0 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white/25 hover:bg-white/35 backdrop-blur-md text-white flex items-center justify-center transition-all duration-200 active:scale-90 border border-white/20 shadow-md"
               aria-label="Previous product"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
-            {/* Central Product Showcase with Glow & Animation */}
+            {/* Central Product Showcase */}
             <div
               onClick={() => onSelectProduct(activeSlide.productRef)}
-              className="relative w-full max-w-md sm:max-w-lg aspect-square flex items-center justify-center cursor-pointer group"
+              className="relative w-full max-w-[280px] sm:max-w-md lg:max-w-lg aspect-square flex items-center justify-center cursor-pointer group"
             >
-              {/* Radial ambient glow */}
-              <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-3xl scale-90 group-hover:scale-100 transition-transform duration-700 pointer-events-none" />
+              {/* Glow */}
+              <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-2xl sm:blur-3xl scale-90 group-hover:scale-100 transition-transform duration-700 pointer-events-none" />
 
-              <div className="relative w-full h-full flex items-center justify-center p-4">
+              <div className="relative w-full h-full flex items-center justify-center p-2 sm:p-4">
                 <Image
                   src={activeSlide.productImage}
                   alt={activeSlide.title}
                   width={520}
                   height={520}
                   priority
-                  className="w-auto h-full max-h-[460px] object-contain filter drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                  className="w-auto h-full max-h-[260px] sm:max-h-[380px] lg:max-h-[460px] object-contain filter drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
                   unoptimized
                 />
               </div>
 
-              {/* Interactive Quick View Tag */}
-              <div className="absolute bottom-6 bg-white/90 hover:bg-white text-slate-900 text-xs font-extrabold px-4 py-2 rounded-full shadow-lg backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 flex items-center gap-1.5">
+              {/* Quick View Tag */}
+              <div className="absolute bottom-2 sm:bottom-6 bg-white/95 hover:bg-white text-slate-900 text-[11px] sm:text-xs font-extrabold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-lg backdrop-blur-md opacity-90 sm:opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-forest-600" />
                 <span>Quick View Formula</span>
               </div>
@@ -105,37 +105,37 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Right arrow */}
             <button
               onClick={handleNext}
-              className="absolute -right-2 sm:right-0 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-white flex items-center justify-center transition-all duration-200 active:scale-90 border border-white/20 shadow-lg"
+              className="absolute right-1 sm:right-0 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white/25 hover:bg-white/35 backdrop-blur-md text-white flex items-center justify-center transition-all duration-200 active:scale-90 border border-white/20 shadow-md"
               aria-label="Next product"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
 
-          {/* Right Column: High-Impact Typography & CTA */}
-          <div className="lg:col-span-6 flex flex-col items-start space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 bg-emerald-900/40 border border-emerald-400/30 px-3.5 py-1.5 rounded-full text-emerald-200 text-xs font-bold uppercase tracking-wider backdrop-blur-md">
-              <ShieldCheck className="w-4 h-4 text-emerald-300" />
+          {/* Typography & CTA Column */}
+          <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left space-y-4 sm:space-y-6">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-emerald-900/50 border border-emerald-400/30 px-3 py-1 rounded-full text-emerald-200 text-[11px] sm:text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+              <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-300" />
               <span>{activeSlide.tagline}</span>
             </div>
 
-            {/* 2-line Iron Rule H1 Heading with Wide Container */}
+            {/* H1 Heading */}
             <div className="w-full max-w-2xl">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.1] text-white uppercase font-sans">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.12] text-white uppercase font-sans">
                 {activeSlide.title}
               </h1>
             </div>
 
-            {/* Clean Subtitle */}
-            <p className="text-base sm:text-lg text-emerald-50/90 font-normal max-w-xl leading-relaxed">
+            {/* Subtitle */}
+            <p className="text-xs sm:text-base lg:text-lg text-emerald-50/90 font-normal max-w-xl leading-relaxed">
               {activeSlide.subtitle}
             </p>
 
             {/* CTA Button */}
-            <div className="pt-2">
+            <div className="pt-1 w-full sm:w-auto">
               <button
                 onClick={onShopNow}
-                className="bg-[#056A33] hover:bg-[#035428] text-white font-extrabold text-sm sm:text-base px-9 py-4 rounded-xl border border-emerald-400/30 shadow-xl shadow-emerald-950/40 flex items-center gap-2.5 transition-all duration-200 active:scale-95 group"
+                className="w-full sm:w-auto justify-center bg-[#056A33] hover:bg-[#035428] text-white font-extrabold text-xs sm:text-base px-8 py-3.5 sm:px-9 sm:py-4 rounded-xl border border-emerald-400/30 shadow-xl shadow-emerald-950/40 flex items-center gap-2.5 transition-all duration-200 active:scale-95 group"
               >
                 <span>Shop Now</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -144,16 +144,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
 
-        {/* Carousel Dots Indicator */}
-        <div className="flex items-center justify-center gap-2.5 mt-8 sm:mt-12">
+        {/* Carousel Dots */}
+        <div className="flex items-center justify-center gap-2 mt-6 sm:mt-12">
           {heroSlides.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
-              className={`h-2.5 rounded-full transition-all duration-300 ${
+              className={`h-2 rounded-full transition-all duration-300 ${
                 currentSlide === idx
-                  ? "w-8 bg-white"
-                  : "w-2.5 bg-white/40 hover:bg-white/60"
+                  ? "w-7 sm:w-8 bg-white"
+                  : "w-2 sm:w-2.5 bg-white/40 hover:bg-white/60"
               }`}
               aria-label={`Slide ${idx + 1}`}
             />

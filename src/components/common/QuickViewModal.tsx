@@ -40,43 +40,43 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
       />
 
       {/* Modal Dialog */}
-      <div className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden z-10 grid grid-cols-1 md:grid-cols-2 animate-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-white rounded-3xl shadow-2xl border border-slate-100 z-10 grid grid-cols-1 md:grid-cols-2 animate-in zoom-in-95 duration-200">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 p-2 rounded-full bg-slate-100/90 hover:bg-slate-200 text-slate-600 transition-colors shadow-xs"
           aria-label="Close"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Left: Product Visual Presentation */}
-        <div className="bg-slate-50/80 p-8 flex flex-col items-center justify-center relative border-b md:border-b-0 md:border-r border-slate-100">
+        <div className="bg-slate-50/80 p-5 sm:p-8 flex flex-col items-center justify-center relative border-b md:border-b-0 md:border-r border-slate-100">
           {product.badge && (
-            <span className="absolute top-6 left-6 text-xs font-black tracking-wider uppercase px-3 py-1 rounded-full bg-forest-600 text-white shadow-sm">
+            <span className="absolute top-4 left-4 sm:top-6 sm:left-6 text-[10px] sm:text-xs font-black tracking-wider uppercase px-2.5 py-1 sm:px-3 rounded-full bg-forest-600 text-white shadow-sm">
               {product.badge}
             </span>
           )}
 
-          <div className="w-64 h-64 sm:w-72 sm:h-72 relative flex items-center justify-center py-4">
+          <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 relative flex items-center justify-center py-2 sm:py-4">
             <Image
               src={product.image}
               alt={product.name}
               width={260}
               height={260}
-              className="w-auto h-full max-h-64 object-contain filter drop-shadow-xl"
+              className="w-auto h-full max-h-48 sm:max-h-64 object-contain filter drop-shadow-xl"
               unoptimized
             />
           </div>
 
-          <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-forest-700 bg-forest-50 px-3.5 py-1.5 rounded-full border border-forest-100">
-            <ShieldCheck className="w-4 h-4 text-forest-600" />
+          <div className="flex items-center gap-1.5 sm:gap-2 mt-3 sm:mt-4 text-[10px] sm:text-xs font-semibold text-forest-700 bg-forest-50 px-3 py-1.5 rounded-full border border-forest-100 text-center">
+            <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-forest-600 shrink-0" />
             <span>Third-Party Lab Tested for Purity & Heavy Metals</span>
           </div>
         </div>
 
         {/* Right: Formulation Details & Controls */}
-        <div className="p-6 sm:p-8 flex flex-col justify-between">
+        <div className="p-5 sm:p-8 flex flex-col justify-between">
           <div className="space-y-4">
             <div>
               <span className="text-xs font-extrabold uppercase tracking-widest text-forest-600">

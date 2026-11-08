@@ -35,15 +35,15 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         </div>
 
         {/* 3 Horizontal Blog Cards */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {BLOG_POSTS.map((post) => (
             <div
               key={post.id}
               onClick={() => onSelectPost(post)}
-              className="group bg-white hover:bg-slate-50/70 rounded-2xl sm:rounded-3xl border border-slate-100 p-4 sm:p-5 flex flex-col md:flex-row items-center gap-6 transition-all duration-300 hover:shadow-lg cursor-pointer"
+              className="group bg-white hover:bg-slate-50/70 rounded-2xl sm:rounded-3xl border border-slate-100 p-3.5 sm:p-5 flex flex-col md:flex-row items-stretch md:items-center gap-4 sm:gap-6 transition-all duration-300 hover:shadow-lg cursor-pointer"
             >
               {/* Thumbnail Image */}
-              <div className="w-full md:w-56 lg:w-64 h-48 md:h-36 relative rounded-xl sm:rounded-2xl overflow-hidden shrink-0">
+              <div className="w-full md:w-56 lg:w-64 h-44 sm:h-48 md:h-36 relative rounded-xl sm:rounded-2xl overflow-hidden shrink-0">
                 <Image
                   src={post.image}
                   alt={post.title}
@@ -53,7 +53,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
               </div>
 
               {/* Date & Author Column */}
-              <div className="flex md:flex-col items-center justify-center md:items-start shrink-0 text-center md:text-left gap-4 md:gap-1.5 md:border-r border-slate-200 md:pr-6">
+              <div className="flex md:flex-col items-center justify-between w-full md:w-auto md:items-start shrink-0 text-left gap-3 md:gap-1.5 border-b md:border-b-0 md:border-r border-slate-100 md:border-slate-200 pb-2.5 md:pb-0 md:pr-6">
                 <div>
                   <span className="block font-black text-2xl sm:text-3xl text-slate-900 leading-none">
                     {post.day}

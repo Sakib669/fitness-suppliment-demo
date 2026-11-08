@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
             {/* Email form */}
             <form
               onSubmit={handleSubscribe}
-              className="w-full max-w-md flex items-center bg-white/10 border border-white/30 rounded-xl p-1 backdrop-blur-sm"
+              className="w-full max-w-md flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-0 bg-white/10 border border-white/30 rounded-2xl sm:rounded-xl p-2 sm:p-1 backdrop-blur-sm"
             >
               <input
                 type="email"
@@ -43,14 +43,14 @@ export const Footer: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-2 bg-transparent text-sm text-white placeholder:text-emerald-100/70 focus:outline-none font-medium"
+                className="w-full px-4 py-2.5 sm:py-2 bg-transparent text-sm text-white placeholder:text-emerald-100/70 focus:outline-none font-medium"
               />
               <button
                 type="submit"
-                className="bg-white hover:bg-slate-100 text-forest-800 font-extrabold text-xs px-5 py-2.5 rounded-lg transition-colors shrink-0 shadow-sm"
+                className="w-full sm:w-auto bg-white hover:bg-slate-100 text-forest-800 font-extrabold text-xs px-5 py-3 sm:py-2.5 rounded-xl sm:rounded-lg transition-colors shrink-0 shadow-sm"
               >
                 {subscribed ? (
-                  <span className="flex items-center gap-1 text-forest-700">
+                  <span className="flex items-center justify-center gap-1 text-forest-700">
                     <CheckCircle2 className="w-3.5 h-3.5" /> Subscribed
                   </span>
                 ) : (
@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
             </form>
 
             {/* Payment Provider Badges matching design */}
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
               <span className="px-2.5 py-1 rounded bg-white text-[#003087] font-black text-[10px] shadow-sm">
                 PayPal
               </span>

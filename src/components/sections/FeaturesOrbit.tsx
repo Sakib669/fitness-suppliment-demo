@@ -60,23 +60,38 @@ export const FeaturesOrbit: React.FC = () => {
 
         {/* 3-Column Orbit: Left Features | Center Tub | Right Features */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Central Tub Showcase (displayed top on mobile, middle on desktop) */}
+          <div className="order-1 lg:order-2 lg:col-span-4 flex items-center justify-center my-2 lg:my-0">
+            <div className="relative w-full max-w-[260px] sm:max-w-xs md:max-w-sm aspect-square flex items-center justify-center">
+              <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-2xl scale-95" />
+              <Image
+                src="/images/products/hero-tub-splash.svg"
+                alt="Formulation Science"
+                width={380}
+                height={380}
+                className="w-auto h-full max-h-[280px] sm:max-h-[360px] object-contain filter drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                unoptimized
+              />
+            </div>
+          </div>
+
           {/* Left 3 Features */}
-          <div className="lg:col-span-4 space-y-8 sm:space-y-10">
+          <div className="order-2 lg:order-1 lg:col-span-4 space-y-6 sm:space-y-8">
             {leftFeatures.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div
                   key={idx}
-                  className="flex items-start gap-4 text-left group hover:translate-x-1 transition-transform"
+                  className="flex items-start gap-3.5 sm:gap-4 text-left group hover:translate-x-1 transition-transform bg-white/5 sm:bg-transparent p-3 sm:p-0 rounded-2xl"
                 >
-                  <div className="w-12 h-12 rounded-xl border border-white/40 bg-white/10 backdrop-blur-sm flex items-center justify-center shrink-0 shadow-sm group-hover:bg-white/20 transition-colors">
-                    <Icon className="w-6 h-6 text-white" />
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl border border-white/40 bg-white/10 backdrop-blur-sm flex items-center justify-center shrink-0 shadow-sm group-hover:bg-white/20 transition-colors">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>
                     <h3 className="font-extrabold text-xs sm:text-sm tracking-wide text-white uppercase">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-emerald-100/90 leading-relaxed mt-1">
+                    <p className="text-[11px] sm:text-xs text-emerald-100/90 leading-relaxed mt-1">
                       {item.desc}
                     </p>
                   </div>
@@ -85,38 +100,23 @@ export const FeaturesOrbit: React.FC = () => {
             })}
           </div>
 
-          {/* Central Tub Showcase */}
-          <div className="lg:col-span-4 flex items-center justify-center my-6 lg:my-0">
-            <div className="relative w-full max-w-xs sm:max-w-sm aspect-square flex items-center justify-center">
-              <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-2xl scale-95" />
-              <Image
-                src="/images/products/hero-tub-splash.svg"
-                alt="Formulation Science"
-                width={380}
-                height={380}
-                className="w-auto h-full max-h-[360px] object-contain filter drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-                unoptimized
-              />
-            </div>
-          </div>
-
           {/* Right 3 Features */}
-          <div className="lg:col-span-4 space-y-8 sm:space-y-10">
+          <div className="order-3 lg:order-3 lg:col-span-4 space-y-6 sm:space-y-8">
             {rightFeatures.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div
                   key={idx}
-                  className="flex items-start gap-4 text-left group hover:-translate-x-1 transition-transform"
+                  className="flex items-start gap-3.5 sm:gap-4 text-left group hover:-translate-x-1 transition-transform bg-white/5 sm:bg-transparent p-3 sm:p-0 rounded-2xl"
                 >
-                  <div className="w-12 h-12 rounded-xl border border-white/40 bg-white/10 backdrop-blur-sm flex items-center justify-center shrink-0 shadow-sm group-hover:bg-white/20 transition-colors">
-                    <Icon className="w-6 h-6 text-white" />
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl border border-white/40 bg-white/10 backdrop-blur-sm flex items-center justify-center shrink-0 shadow-sm group-hover:bg-white/20 transition-colors">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>
                     <h3 className="font-extrabold text-xs sm:text-sm tracking-wide text-white uppercase">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-emerald-100/90 leading-relaxed mt-1">
+                    <p className="text-[11px] sm:text-xs text-emerald-100/90 leading-relaxed mt-1">
                       {item.desc}
                     </p>
                   </div>

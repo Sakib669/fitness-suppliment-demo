@@ -62,37 +62,37 @@ export const ProductSpotlight: React.FC<ProductSpotlightProps> = ({
                 alt={SPOTLIGHT_PRODUCT.name}
                 width={420}
                 height={480}
-                className="w-auto h-full max-h-[420px] object-contain filter drop-shadow-2xl group-hover:scale-105 transition-transform duration-300"
+                className="w-auto h-full max-h-[300px] sm:max-h-[420px] object-contain filter drop-shadow-2xl group-hover:scale-105 transition-transform duration-300"
                 unoptimized
               />
             </div>
           </div>
 
           {/* Right: Technical Specs, Bullets & Order Now */}
-          <div className="lg:col-span-7 space-y-6 text-left">
+          <div className="lg:col-span-7 space-y-5 sm:space-y-6 text-left">
             <div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight uppercase">
+              <h2 className="text-xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight uppercase">
                 {SPOTLIGHT_PRODUCT.name}
               </h2>
 
               {/* Price Row matching the design: ₹ 1199 with crossed 1399 */}
-              <div className="flex items-baseline gap-3 mt-3">
-                <span className="text-2xl sm:text-3xl font-black text-slate-900">
+              <div className="flex items-baseline gap-2.5 sm:gap-3 mt-2 sm:mt-3">
+                <span className="text-xl sm:text-3xl font-black text-slate-900">
                   ₹ {SPOTLIGHT_PRODUCT.price}
                 </span>
-                <span className="text-sm sm:text-base font-semibold text-slate-400 line-through">
+                <span className="text-xs sm:text-base font-semibold text-slate-400 line-through">
                   ₹ {SPOTLIGHT_PRODUCT.originalPrice}
                 </span>
-                <span className="text-xs font-bold text-forest-700 bg-forest-50 px-2 py-0.5 rounded">
+                <span className="text-[11px] sm:text-xs font-bold text-forest-700 bg-forest-50 px-2 py-0.5 rounded">
                   Save {SPOTLIGHT_PRODUCT.discountPercent}%
                 </span>
               </div>
             </div>
 
             {/* Bullet List matching screenshot exactly */}
-            <div className="space-y-4 pt-2">
+            <div className="space-y-3 sm:space-y-4 pt-1">
               {SPOTLIGHT_PRODUCT.highlights.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-3">
+                <div key={idx} className="flex items-start gap-2.5 sm:gap-3">
                   <div className="mt-1 text-slate-400 shrink-0">
                     <CheckCircle2 className="w-4 h-4 text-forest-600" />
                   </div>
@@ -107,10 +107,10 @@ export const ProductSpotlight: React.FC<ProductSpotlightProps> = ({
             </div>
 
             {/* Order Now CTA Button with Truck/Cart Icon */}
-            <div className="pt-4">
+            <div className="pt-2 sm:pt-4">
               <button
                 onClick={handleOrderNow}
-                className="bg-[#056A33] hover:bg-[#035428] text-white font-extrabold text-xs sm:text-sm px-8 py-3.5 rounded-lg shadow-lg shadow-forest-600/20 flex items-center gap-2.5 transition-all duration-200 active:scale-95"
+                className="w-full sm:w-auto justify-center bg-[#056A33] hover:bg-[#035428] text-white font-extrabold text-xs sm:text-sm px-8 py-3.5 rounded-xl sm:rounded-lg shadow-lg shadow-forest-600/20 flex items-center gap-2.5 transition-all duration-200 active:scale-95"
               >
                 <ShoppingCart className="w-4 h-4" />
                 <span>Order Now</span>

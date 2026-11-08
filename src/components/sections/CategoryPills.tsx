@@ -14,9 +14,10 @@ export const CategoryPills: React.FC<CategoryPillsProps> = ({
   onSelectCategory,
 }) => {
   return (
-    <section className="bg-white py-8 sm:py-12 border-b border-slate-100">
+    <section className="bg-white py-6 sm:py-10 border-b border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between overflow-x-auto pb-4 pt-1 sm:pb-0 gap-6 sm:gap-8 scrollbar-none">
+        {/* Mobile Edge-to-Edge Scroll Container */}
+        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 flex items-center justify-start md:justify-between overflow-x-auto pb-2 pt-1 gap-5 sm:gap-8 scroll-smooth no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {CATEGORIES.map((cat) => {
             const isSelected =
               activeCategory.toLowerCase() === cat.name.toLowerCase();
@@ -25,22 +26,22 @@ export const CategoryPills: React.FC<CategoryPillsProps> = ({
               <button
                 key={cat.name}
                 onClick={() => onSelectCategory(cat.name)}
-                className="group flex flex-col items-center gap-3 shrink-0 focus:outline-none transition-all duration-200"
+                className="group flex flex-col items-center gap-2.5 shrink-0 focus:outline-none transition-all duration-200 active:scale-95"
               >
                 {/* Circular Container */}
                 <div
-                  className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center p-1.5 transition-all duration-300 ${
+                  className={`w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center p-1 transition-all duration-300 ${
                     isSelected
-                      ? "ring-4 ring-forest-600 ring-offset-2 scale-105 shadow-md shadow-forest-600/20"
-                      : "group-hover:scale-105 group-hover:shadow-lg shadow-sm"
+                      ? "ring-3 sm:ring-4 ring-forest-600 ring-offset-2 scale-105 shadow-md shadow-forest-600/20"
+                      : "group-hover:scale-105 group-hover:shadow-lg shadow-xs"
                   }`}
                 >
-                  <div className="w-full h-full rounded-full overflow-hidden bg-forest-700 flex items-center justify-center p-2.5">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-forest-700 flex items-center justify-center p-2 sm:p-2.5">
                     <Image
                       src={cat.image}
                       alt={cat.name}
-                      width={56}
-                      height={56}
+                      width={52}
+                      height={52}
                       className="w-auto h-full object-contain filter drop-shadow-md group-hover:scale-110 transition-transform duration-300"
                       unoptimized
                     />
@@ -49,7 +50,7 @@ export const CategoryPills: React.FC<CategoryPillsProps> = ({
 
                 {/* Label */}
                 <span
-                  className={`text-xs sm:text-sm font-bold tracking-tight capitalize transition-colors ${
+                  className={`text-[11px] sm:text-sm font-bold tracking-tight capitalize transition-colors whitespace-nowrap ${
                     isSelected
                       ? "text-forest-700 font-extrabold"
                       : "text-slate-800 group-hover:text-forest-600"
