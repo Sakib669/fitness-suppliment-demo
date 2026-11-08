@@ -9,12 +9,14 @@ import { useWishlist } from "@/hooks/useWishlist";
 interface NavbarProps {
   onOpenSearch?: () => void;
   onOpenWishlist?: () => void;
+  onOpenCart?: () => void;
   onSelectCategory?: (category: string) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   onOpenSearch,
   onOpenWishlist,
+  onOpenCart,
   onSelectCategory,
 }) => {
   const { totalCount, setIsOpen: setIsCartOpen } = useCart();
@@ -191,7 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Cart Trigger */}
           <button
-            onClick={() => setIsCartOpen(true)}
+            onClick={onOpenCart ? onOpenCart : () => setIsCartOpen(true)}
             className="relative flex items-center gap-2 bg-slate-900 hover:bg-forest-600 text-white px-4 py-2.5 rounded-full font-semibold text-xs tracking-wide transition-all duration-200 active:scale-95 shadow-sm"
             aria-label="Cart"
           >

@@ -11,11 +11,12 @@ export interface CartItem {
 
 const CART_STORAGE_KEY = "zenith_cart_items_v1";
 const CART_UPDATE_EVENT = "zenith_cart_updated";
+const CART_TOGGLE_EVENT = "zenith_cart_toggle";
 
 export function useCart() {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpenState] = useState(false);
 
   const loadFromStorage = useCallback(() => {
     if (typeof window === "undefined") return;
@@ -39,12 +40,19 @@ export function useCart() {
       loadFromStorage();
     };
 
+    const handleToggle = (e: Event) => {
+      const customEvent = e as CustomEvent<boolean>;
+      setIsOpenState(customEvent.detail);
+    };
+
     window.addEventListener(CART_UPDATE_EVENT, handleStorageChange);
     window.addEventListener("storage", handleStorageChange);
+    window.addEventListener(CART_TOGGLE_EVENT, handleToggle);
 
     return () => {
       window.removeEventListener(CART_UPDATE_EVENT, handleStorageChange);
       window.removeEventListener("storage", handleStorageChange);
+      window.removeEventListener(CART_TOGGLE_EVENT, handleToggle);
     };
   }, [loadFromStorage]);
 
@@ -55,6 +63,13 @@ export function useCart() {
       window.dispatchEvent(new Event(CART_UPDATE_EVENT));
     } catch (err) {
       console.error("Failed to save to localStorage", err);
+    }
+  };
+
+  const setIsOpen = (open: boolean) => {
+    setIsOpenState(open);
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent(CART_TOGGLE_EVENT, { detail: open }));
     }
   };
 

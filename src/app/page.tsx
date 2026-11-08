@@ -28,6 +28,7 @@ import { BlogPost } from "@/data/blog";
 
 export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -63,6 +64,7 @@ export default function HomePage() {
 
       {/* 2. Main Navigation Header */}
       <Navbar
+        onOpenCart={() => setIsCartOpen(true)}
         onOpenSearch={() => setIsSearchOpen(true)}
         onOpenWishlist={() => setIsWishlistOpen(true)}
         onSelectCategory={handleSelectCategory}
@@ -130,7 +132,10 @@ export default function HomePage() {
       <Footer />
 
       {/* Interactive Drawers & Modals (LocalStorage Powered) */}
-      <CartDrawer />
+      <CartDrawer
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+      />
 
       <WishlistModal
         isOpen={isWishlistOpen}

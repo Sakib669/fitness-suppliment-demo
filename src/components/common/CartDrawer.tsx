@@ -6,11 +6,19 @@ import { X, Plus, Minus, Trash2, ShoppingBag, ArrowRight, CheckCircle2 } from "l
 import { useCart } from "@/hooks/useCart";
 import confetti from "canvas-confetti";
 
-export const CartDrawer: React.FC = () => {
+interface CartDrawerProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export const CartDrawer: React.FC<CartDrawerProps> = ({
+  isOpen: controlledIsOpen,
+  onClose: controlledOnClose,
+}) => {
   const {
     items,
-    isOpen,
-    setIsOpen,
+    isOpen: hookIsOpen,
+    setIsOpen: hookSetIsOpen,
     updateQuantity,
     removeFromCart,
     clearCart,
@@ -18,6 +26,15 @@ export const CartDrawer: React.FC = () => {
     totalCount,
     savings,
   } = useCart();
+
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : hookIsOpen;
+  const handleClose = () => {
+    if (controlledOnClose) {
+      controlledOnClose();
+    } else {
+      hookSetIsOpen(false);
+    }
+  };
 
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const [checkoutDone, setCheckoutDone] = useState(false);
@@ -40,7 +57,7 @@ export const CartDrawer: React.FC = () => {
       setTimeout(() => {
         clearCart();
         setCheckoutDone(false);
-        setIsOpen(false);
+        handleClose();
       }, 3500);
     }, 1200);
   };
@@ -52,7 +69,7 @@ export const CartDrawer: React.FC = () => {
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
-        onClick={() => setIsOpen(false)}
+        onClick={handleClose}
       />
 
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
@@ -67,7 +84,7 @@ export const CartDrawer: React.FC = () => {
               </span>
             </div>
             <button
-              onClick={() => setIsOpen(false)}
+              onClick={handleClose}
               className="p-2 rounded-full hover:bg-slate-200/70 text-slate-500 transition-colors"
               aria-label="Close cart"
             >
@@ -120,7 +137,7 @@ export const CartDrawer: React.FC = () => {
                   Explore our science-backed supplements and elevate your performance today.
                 </p>
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleClose}
                   className="mt-2 bg-forest-600 hover:bg-forest-700 text-white font-semibold text-xs px-5 py-2.5 rounded-full transition-colors"
                 >
                   Start Shopping
