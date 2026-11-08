@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <radialGradient id="pinkSplash" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFDEE8"/>
+      <stop offset="70%" stop-color="#FFB3C7"/>
+      <stop offset="100%" stop-color="#FFA1BA" stop-opacity="0.9"/>
+    </radialGradient>
+    <radialGradient id="milkGlow" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFE8EF"/>
+      <stop offset="100%" stop-color="#FFD1E0"/>
+    </radialGradient>
+    <linearGradient id="tubBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#121417"/>
+      <stop offset="25%" stop-color="#2D333B"/>
+      <stop offset="50%" stop-color="#3F4752"/>
+      <stop offset="75%" stop-color="#1E2328"/>
+      <stop offset="100%" stop-color="#0F1114"/>
+    </linearGradient>
+    <linearGradient id="tubLid" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E2227"/>
+      <stop offset="30%" stop-color="#3D454E"/>
+      <stop offset="70%" stop-color="#24292F"/>
+      <stop offset="100%" stop-color="#121518"/>
+    </linearGradient>
+    <linearGradient id="labelGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C22718"/>
+      <stop offset="35%" stop-color="#E8482A"/>
+      <stop offset="65%" stop-color="#FF6B3D"/>
+      <stop offset="100%" stop-color="#9C170E"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+
+  <!-- Dynamic Milk & Protein Liquid Splash Backdrop -->
+  <g filter="url(#dropShadow)">
+    <!-- Splash tentacles & droplets -->
+    <path d="M120 340 C90 280, 70 200, 110 160 C140 130, 190 220, 230 260 C210 170, 240 100, 290 90 C340 80, 360 160, 370 240 C420 180, 480 140, 510 180 C540 220, 500 290, 480 340 C550 370, 580 430, 540 480 C500 530, 430 510, 390 530 C330 560, 260 560, 210 530 C150 490, 120 460, 90 420 C60 380, 140 370, 120 340 Z" fill="url(#pinkSplash)" opacity="0.95"/>
+    <path d="M160 360 C140 300, 130 230, 180 200 C210 180, 240 240, 270 280 C270 190, 310 140, 340 160 C370 180, 370 250, 410 270 C450 220, 490 210, 490 250 C490 290, 460 340, 440 380 C490 410, 500 460, 460 490 C420 520, 370 500, 330 510 C280 520, 220 510, 190 480 C160 450, 170 410, 160 360 Z" fill="url(#milkGlow)"/>
+  </g>
+
+  <!-- Floating Splash Droplets -->
+  <circle cx="85" cy="180" r="14" fill="#FFB3C7"/>
+  <circle cx="70" cy="230" r="8" fill="#FFE8EF"/>
+  <circle cx="110" cy="120" r="10" fill="#FFCCD8"/>
+  <circle cx="270" cy="70" r="12" fill="#FFE8EF"/>
+  <circle cx="330" cy="55" r="9" fill="#FFB3C7"/>
+  <circle cx="510" cy="120" r="16" fill="#FFCCD8"/>
+  <circle cx="545" cy="190" r="11" fill="#FFE8EF"/>
+  <circle cx="570" cy="360" r="15" fill="#FFB3C7"/>
+  <circle cx="60" cy="450" r="12" fill="#FFE8EF"/>
+
+  <!-- Strawberries Around Base -->
+  <g transform="translate(140, 440)">
+    <!-- Strawberry 1 -->
+    <path d="M25 15 C10 15 0 35 15 55 C25 68 30 70 35 70 C40 70 45 68 55 55 C70 35 60 15 45 15 Z" fill="#D32F2F"/>
+    <path d="M25 15 C30 5 40 5 45 15 C52 10 60 18 50 25 C45 22 35 22 30 25 C20 18 28 10 25 15 Z" fill="#2E7D32"/>
+    <circle cx="28" cy="30" r="1.5" fill="#FFEB3B"/>
+    <circle cx="42" cy="32" r="1.5" fill="#FFEB3B"/>
+    <circle cx="35" cy="45" r="1.5" fill="#FFEB3B"/>
+    <circle cx="26" cy="52" r="1.5" fill="#FFEB3B"/>
+    <circle cx="44" cy="50" r="1.5" fill="#FFEB3B"/>
+  </g>
+  <g transform="translate(390, 450) scale(0.85)">
+    <!-- Strawberry 2 -->
+    <path d="M25 15 C10 15 0 35 15 55 C25 68 30 70 35 70 C40 70 45 68 55 55 C70 35 60 15 45 15 Z" fill="#E53935"/>
+    <path d="M25 15 C30 5 40 5 45 15 C52 10 60 18 50 25 C45 22 35 22 30 25 C20 18 28 10 25 15 Z" fill="#388E3C"/>
+    <circle cx="28" cy="30" r="1.5" fill="#FFF59D"/>
+    <circle cx="42" cy="32" r="1.5" fill="#FFF59D"/>
+    <circle cx="35" cy="45" r="1.5" fill="#FFF59D"/>
+  </g>
+
+  <!-- Main Supplement Tub Container -->
+  <g filter="url(#dropShadow)" transform="translate(195, 120)">
+    <!-- Ridged Lid -->
+    <rect x="25" y="0" width="160" height="38" rx="8" fill="url(#tubLid)"/>
+    <line x1="35" y1="10" x2="35" y2="30" stroke="#4F5966" stroke-width="2"/>
+    <line x1="50" y1="10" x2="50" y2="30" stroke="#4F5966" stroke-width="2"/>
+    <line x1="65" y1="10" x2="65" y2="30" stroke="#4F5966" stroke-width="2"/>
+    <line x1="80" y1="10" x2="80" y2="30" stroke="#4F5966" stroke-width="2"/>
+    <line x1="95" y1="10" x2="95" y2="30" stroke="#4F5966" stroke-width="2"/>
+    <line x1="110" y1="10" x2="110" y2="30" stroke="#4F5966" stroke-width="2"/>
+    <line x1="125" y1="10" x2="125" y2="30" stroke="#4F5966" stroke-width="2"/>
+    <line x1="140" y1="10" x2="140" y2="30" stroke="#4F5966" stroke-width="2"/>
+    <line x1="155" y1="10" x2="155" y2="30" stroke="#4F5966" stroke-width="2"/>
+    <line x1="170" y1="10" x2="170" y2="30" stroke="#4F5966" stroke-width="2"/>
+
+    <!-- Neck & Shoulder -->
+    <path d="M30 38 L180 38 L195 70 L15 70 Z" fill="#1C2126"/>
+
+    <!-- Tub Main Cylinder Body -->
+    <rect x="10" y="70" width="190" height="260" rx="16" fill="url(#tubBody)"/>
+    <!-- Specular Highlight Strip -->
+    <rect x="55" y="70" width="22" height="260" fill="#FFFFFF" opacity="0.12"/>
+    
+    <!-- Bold High-Gloss Front Label -->
+    <rect x="15" y="100" width="180" height="195" rx="8" fill="#14181D"/>
+    
+    <!-- Accent Chevron Graphics -->
+    <path d="M25 110 L50 110 L65 145 L40 145 Z" fill="#FF5722"/>
+    <path d="M45 110 L70 110 L85 145 L60 145 Z" fill="#FF9800"/>
+    <path d="M65 110 L90 110 L105 145 L80 145 Z" fill="#FFC107"/>
+
+    <!-- Brand Typography on Tub -->
+    <text x="105" y="165" font-family="Outfit, sans-serif" font-weight="900" font-size="24" fill="#FFFFFF" text-anchor="middle" letter-spacing="1.5">ZENITH</text>
+    
+    <rect x="30" y="180" width="150" height="42" rx="4" fill="url(#labelGrad)"/>
+    <text x="105" y="209" font-family="Outfit, sans-serif" font-weight="900" font-size="21" fill="#FFFFFF" text-anchor="middle" letter-spacing="2.5">BIO-FUEL</text>
+    
+    <!-- Badges & Subtext -->
+    <text x="105" y="242" font-family="Outfit, sans-serif" font-weight="700" font-size="10" fill="#E2E8F0" text-anchor="middle" letter-spacing="1">100% CROSS-FLOW WHEY ISOLATE</text>
+    
+    <!-- Spec Badges -->
+    <g transform="translate(25, 255)">
+      <rect x="5" y="0" width="42" height="22" rx="3" fill="#242B35"/>
+      <text x="26" y="14" font-family="Outfit, sans-serif" font-weight="800" font-size="10" fill="#4ADE80" text-anchor="middle">28G</text>
+      
+      <rect x="55" y="0" width="42" height="22" rx="3" fill="#242B35"/>
+      <text x="76" y="14" font-family="Outfit, sans-serif" font-weight="800" font-size="10" fill="#38BDF8" text-anchor="middle">7.1G</text>
+      
+      <rect x="105" y="0" width="42" height="22" rx="3" fill="#242B35"/>
+      <text x="126" y="14" font-family="Outfit, sans-serif" font-weight="800" font-size="10" fill="#FACC15" text-anchor="middle">ZERO</text>
+    </g>
+    <text x="46" y="286" font-family="Outfit, sans-serif" font-size="7.5" fill="#94A3B8" text-anchor="middle">PROTEIN</text>
+    <text x="96" y="286" font-family="Outfit, sans-serif" font-size="7.5" fill="#94A3B8" text-anchor="middle">BCAA</text>
+    <text x="146" y="286" font-family="Outfit, sans-serif" font-size="7.5" fill="#94A3B8" text-anchor="middle">SUGAR</text>
+  </g>
+</svg>
